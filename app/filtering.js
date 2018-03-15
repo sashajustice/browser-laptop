@@ -692,7 +692,7 @@ const initPartition = (partition) => {
     options.isolated_storage = true
     options.parent_partition = ''
     options.tor_proxy = 'socks5://127.0.0.1:9050'
-    options.tor_path = getExtensionsPath('tor') + "/tor"
+    options.tor_path = getExtensionsPath('tor') + '/tor'
   }
 
   let ses = session.fromPartition(partition, options)
