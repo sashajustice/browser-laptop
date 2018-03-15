@@ -6,6 +6,7 @@ const appActions = require('../../js/actions/appActions')
 const windowActions = require('../../js/actions/windowActions')
 const tabActions = require('../common/actions/tabActions')
 const config = require('../../js/constants/config')
+const {getExtensionsPath} = require('../../js/lib/appUrlUtil')
 const Immutable = require('immutable')
 const { shouldDebugTabEvents } = require('../cmdLine')
 const tabState = require('../common/state/tabState')
@@ -1015,6 +1016,7 @@ const api = {
           createProperties.isolated_storage = true
           createProperties.parent_partition = ''
           createProperties.tor_proxy = 'socks5://127.0.0.1:9050'
+          createProperties.tor_path = getExtensionsPath('tor') + "/tor"
         }
       }
 
