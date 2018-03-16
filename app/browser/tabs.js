@@ -1017,7 +1017,12 @@ const api = {
           createProperties.isolated_storage = true
           createProperties.parent_partition = ''
           createProperties.tor_proxy = 'socks5://127.0.0.1:9050'
-          createProperties.tor_path = path.join(getExtensionsPath('bin'), 'tor')
+          if (process.platform === 'win32') {
+            createProperties.tor_path = path.join(getExtensionsPath('bin'), 'tor.exe').quote()
+          } else {
+            createProperties.tor_path = path.join(getExtensionsPath('bin'), 'tor')
+          }
+
         }
       }
 
