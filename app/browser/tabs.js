@@ -40,6 +40,7 @@ const bookmarkOrderCache = require('../common/cache/bookmarkOrderCache')
 const ledgerState = require('../common/state/ledgerState')
 const {getWindow} = require('./windows')
 const activeTabHistory = require('./activeTabHistory')
+const path = require('path')
 
 let adBlockRegions
 let currentPartitionNumber = 0
