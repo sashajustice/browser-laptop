@@ -14,6 +14,7 @@ const appConfig = require('../js/constants/appConfig')
 const hostContentSettings = require('./browser/contentSettings/hostContentSettings')
 const downloadStates = require('../js/constants/downloadStates')
 const urlParse = require('./common/urlParse')
+const { URL } = require('url')
 const getSetting = require('../js/settings').getSetting
 const appUrlUtil = require('../js/lib/appUrlUtil')
 const siteSettings = require('../js/state/siteSettings')
@@ -495,9 +496,10 @@ function registerPermissionHandler (session, partition) {
         }
       }
 
+      let parsedMainFrameUrl = new URL(mainFrameUrl)
       // Display 'Brave Browser' if the origin is null; ex: when a mailto: link
       // is opened in a new tab via right-click
-      const message = locale.translation('permissionMessage').replace(/{{\s*host\s*}}/, origin || 'Brave Browser').replace(/{{\s*permission\s*}}/, permissions[permission].action)
+      const message = locale.translation('permissionMessage').replace(/{{\s*host\s*}}/, parsedMainFrameUrl.hostname || 'Brave Browser').replace(/{{\s*permission\s*}}/, permissions[permission].action)
 
       // If this is a duplicate, clear the previous callback and use the new one
       if (permissionCallbacks[message]) {
