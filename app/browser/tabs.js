@@ -1022,7 +1022,6 @@ const api = {
           } else {
             createProperties.tor_path = path.join(getExtensionsPath('bin'), 'tor')
           }
-
         }
       }
 
