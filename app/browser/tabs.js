@@ -1016,7 +1016,7 @@ const api = {
           createProperties.isolated_storage = true
           createProperties.parent_partition = ''
           createProperties.tor_proxy = 'socks5://127.0.0.1:9050'
-          createProperties.tor_path = getExtensionsPath('bin') + '/tor'
+          createProperties.tor_path = path.join(getExtensionsPath('bin'), 'tor')
         }
       }
 
